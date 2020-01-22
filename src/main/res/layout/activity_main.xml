@@ -13,15 +13,15 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_marginTop="-250dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginTop="-200dp"
+        android:layout_marginBottom="10dp"
         android:layout_width="match_parent"
         android:layout_height="155dp"
         android:gravity="center"
         android:text="An initiative to make your daily health data more assembled and decorated.Make yourself comfortable by storing
 your personal health record and let your doctor know about your health condition everyday,anytime,anywhere...."
         android:textColor="@android:color/black"
-        android:textSize="20dp" />
+        android:textSize="14dp" />
 
     <ImageView
         android:layout_width="117dp"

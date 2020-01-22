@@ -63,7 +63,7 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
 
         //Bundle bundle = getIntent().getExtras();
         //Email = bundle.getString("Email");
-        Toast.makeText(getApplicationContext(),"welcome "+Profile.Email,Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(),"welcome "+Profile.Email,Toast.LENGTH_LONG).show();
 
         progressBar = findViewById(R.id.update_pro);
         username = findViewById(R.id.username);
@@ -165,31 +165,31 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
             month.append(""+(datePicker.getMonth()+1)+"");
             dateForAutoUpdate.append(""+(datePicker.getMonth()+1)+"");
             String Month = month.toString();
-            if(Month=="1")
+            //Toast.makeText(getApplicationContext(),Month,Toast.LENGTH_SHORT).show();
+            if(Month.equals("1")){
                 Month="JANUARY";
-            else if(Month=="2")
+            }
+            else if(Month.equals("2"))
                 Month="FEBRUARY";
-            else if(Month=="2")
-                Month="FEBRUARY";
-            else if(Month=="3")
+            else if(Month.equals("3"))
                 Month="MARCH";
-            else if(Month=="4")
+            else if(Month.equals("4"))
                 Month="APRIL";
-            else if(Month=="5")
+            else if(Month.equals("5"))
                 Month="MAY";
-            else if(Month=="6")
+            else if(Month.equals("6"))
                 Month="JUNE";
-            else if(Month=="7")
+            else if(Month.equals("7"))
                 Month="JULY";
-            else if(Month=="8")
+            else if(Month.equals("8"))
                 Month="AUGUST";
-            else if(Month=="9")
+            else if(Month.equals("9"))
                 Month="SEPTEMBER";
-            else if(Month=="10")
+            else if(Month.equals("10"))
                 Month="OCTOBER";
-            else if(Month=="11")
+            else if(Month.equals("11"))
                 Month="NOVEMBER";
-            else if(Month=="12")
+            else if(Month.equals("12"))
                 Month="DECEMBER";
         return Month;
     }

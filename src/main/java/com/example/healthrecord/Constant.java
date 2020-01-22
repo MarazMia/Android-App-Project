@@ -82,5 +82,11 @@ public class Constant {
             "</table>\n" +
             "</body>\n" +
             "</html>\n";
+    public static String htmlEmpty =
+            "<html>\n" +
+                    "<body>\n" +
+                    "<p>the list is empty</p>\n" +
+                    "</body>\n" +
+                    "</html>\n";
 
 }

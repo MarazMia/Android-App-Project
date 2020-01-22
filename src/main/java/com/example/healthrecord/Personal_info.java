@@ -3,6 +3,8 @@ package com.example.healthrecord;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.webkit.WebView;
@@ -59,30 +61,40 @@ public class Personal_info extends AppCompatActivity {
 
                     String[] content = response.toString().split("\n");
                     int ln = 0;
-                    if(content.length > 15)
-                        ln = 15;
-                    else
-                        ln = content.length;
-                    for(int i=0; i<ln; i++){
-                        String[] element = content[i].split("-");
+                    if(response.toString().trim().equalsIgnoreCase("no")) {
+                        String htmlTable = Constant.htmlEmpty;
+                        webView.loadDataWithBaseURL(null, htmlTable, "text/html", "utf-8", null);
 
-                        htmlMiddle +=   "   <tr>\n" +
-                                "<td>"+element[0]+"</td>\n" +
-                                "<td>"+element[1]+"</td>\n" +
-                                "<td>"+element[2]+"</td>\n" +
-                                "<td>"+element[3]+"</td>\n" +
-                                "<td>"+element[4]+"</td>\n" +
-                                "<td>"+element[5]+"</td>\n" +
-                                "<td>"+element[6]+"</td>\n" +
-                                "<td>"+element[7]+"</td>\n" +
-                                "  </tr>\n" ;
+                        JSONObject jsonObject = new JSONObject(response);
+                        Toast.makeText(getApplicationContext(), jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
+                      Toast.makeText(getApplicationContext(),"no data in your list",Toast.LENGTH_SHORT).show();
+                      /*Intent intent = new Intent(getApplicationContext(),Profile.class);
+                      startActivity(intent);*/
                     }
+                        if (content.length > 15)
+                            ln = 15;
+                        else if (content.length > 0)
+                            ln = content.length;
+                        for (int i = 0; i < ln; i++) {
+                            String[] element = content[i].split("-");
 
-                    String htmlTable = Constant.html+htmlMiddle+Constant.htmlLast;
-                    webView.loadDataWithBaseURL(null,htmlTable,"text/html","utf-8",null);
+                            htmlMiddle += "   <tr>\n" +
+                                    "<td>" + element[0] + "</td>\n" +
+                                    "<td>" + element[1] + "</td>\n" +
+                                    "<td>" + element[2] + "</td>\n" +
+                                    "<td>" + element[3] + "</td>\n" +
+                                    "<td>" + element[4] + "</td>\n" +
+                                    "<td>" + element[5] + "</td>\n" +
+                                    "<td>" + element[6] + "</td>\n" +
+                                    "<td>" + element[7] + "</td>\n" +
+                                    "  </tr>\n";
+                        }
 
-                    JSONObject jsonObject = new JSONObject(response);
-                    Toast.makeText(getApplicationContext(),jsonObject.getString("message"),Toast.LENGTH_SHORT).show();
+                        String htmlTable = Constant.html + htmlMiddle + Constant.htmlLast;
+                        webView.loadDataWithBaseURL(null, htmlTable, "text/html", "utf-8", null);
+
+                        JSONObject jsonObject = new JSONObject(response);
+                        Toast.makeText(getApplicationContext(), jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
 
                 } catch (JSONException e) {
                     e.printStackTrace();

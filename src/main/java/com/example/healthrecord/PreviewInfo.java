@@ -3,6 +3,7 @@ package com.example.healthrecord;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.webkit.WebView;
@@ -58,7 +59,14 @@ public class PreviewInfo extends AppCompatActivity {
             public void onResponse(String response) {
                 try {
 
+                    if(response.toString().trim().equalsIgnoreCase("no")) {
+                        String htmlTable = Constant.htmlEmpty;
+                        webView.loadDataWithBaseURL(null, htmlTable, "text/html", "utf-8", null);
 
+                        JSONObject jsonObject = new JSONObject(response);
+                        Toast.makeText(getApplicationContext(), jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),"no data in your list",Toast.LENGTH_SHORT).show();
+                    }
                     String[] content = response.toString().split("\n");
                     for(int i=0; i<content.length; i++){
                         String[] element = content[i].split("-");
@@ -67,21 +75,21 @@ public class PreviewInfo extends AppCompatActivity {
                                 "<td>"+element[0]+"</td>\n" +
                                 "<td>"+element[1]+"</td>\n" +
                                 "<td>"+element[2]+"</td>\n" +
-                                "<td>"+element[3]+"/6"+"</td>\n" +
-                                "<td>"+element[4]+"/22"+"</td>\n" +
-                                "<td>"+element[5]+"/120"+"</td>\n" +
-                                "<td>"+element[6]+"/80"+"</td>\n" +
+                                "<td>"+element[3]+"</td>\n" +
+                                "<td>"+element[4]+"</td>\n" +
+                                "<td>"+element[5]+"</td>\n" +
+                                "<td>"+element[6]+"</td>\n" +
                                 "<td>"+element[7]+"</td>\n" +
                                 "  </tr>\n" ;
                     }
 
-                    String htmlTable = Constant.htmltest+htmlMiddle+Constant.htmlLast;
+                    String htmlTable = Constant.html+htmlMiddle+Constant.htmlLast;
                     webView.loadDataWithBaseURL(null,htmlTable,"text/html","utf-8",null);
 
                     JSONObject jsonObject = new JSONObject(response);
                     Toast.makeText(getApplicationContext(),jsonObject.getString("message"),Toast.LENGTH_SHORT).show();
 
-                } catch (JSONException e) {
+                 }catch (JSONException e) {
                     e.printStackTrace();
                 }
 
