@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".SearchRecord"></activity>
+        <activity android:name=".StepCounter"></activity>
+        <activity android:name=".SearchRecord" />
         <activity android:name=".PreviewInfo" />
         <activity android:name=".About" />
         <activity android:name=".Notification" />

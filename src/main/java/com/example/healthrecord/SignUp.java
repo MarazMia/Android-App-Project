@@ -122,7 +122,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
                         name.setText(null);
                         email.setText(null);
                         password.setText(null);
-                        Intent intent = new Intent(getApplicationContext(),Profile.class);
+                        Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                        // intent.putExtra("Name",Name);
                         startActivity(intent);
                     }else{

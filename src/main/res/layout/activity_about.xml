@@ -107,7 +107,7 @@
             android:layout_width="wrap_content"
             android:layout_height="160dp"
             android:layout_gravity="center"
-            android:text="Name : Sifat Ohee Registration No : 2017831013"
+            android:text="Name : Sifat Ohee Registration No : 2017831012"
             android:layout_marginBottom="10dp"
             android:textSize="30sp"
             android:textColor="@color/colorAccent"

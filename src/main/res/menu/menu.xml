@@ -23,6 +23,11 @@
         android:title="Notification"
         android:icon="@drawable/ic_settings_black_24dp"
         />
+    <item
+        android:id="@+id/stepcounter"
+        android:title="Your Step Counter"
+        android:icon="@drawable/ic_settings_black_24dp"
+        />
 
     <item
         android:id="@+id/about"

@@ -112,6 +112,12 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
             Intent intent = new Intent(getApplicationContext(),Personal_info.class);
             startActivity(intent);
         }
+
+        else if(item.getItemId() == R.id.stepcounter){
+            Intent intent = new Intent(getApplicationContext(),StepCounter.class);
+            startActivity(intent);
+        }
+
         else if(item.getItemId() == R.id.notification){
             Intent intent = new Intent(getApplicationContext(),Notification.class);
             startActivity(intent);
