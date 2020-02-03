@@ -27,6 +27,8 @@ public class Personal_info extends AppCompatActivity {
 
     private WebView webView;
     private String htmlMiddle;
+    public static float avgsl=0,avgcc=0,avgsr=0,avgdr=0,avgsll=0,avgccc=0,avgsrr=0,avgdrr=0,highestsl=100000,lowestsl=0,
+            highestsr=100000,lowestsr=0,highestdr=100000,lowestdr=0,highestcc=100000,lowestcc=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +60,6 @@ public class Personal_info extends AppCompatActivity {
             public void onResponse(String response) {
                 try {
 
-
                     String[] content = response.toString().split("\n");
                     int ln = 0;
                     if(response.toString().trim().equalsIgnoreCase("no")) {
@@ -75,8 +76,14 @@ public class Personal_info extends AppCompatActivity {
                             ln = 15;
                         else if (content.length > 0)
                             ln = content.length;
+
                         for (int i = 0; i < ln; i++) {
                             String[] element = content[i].split("-");
+
+                            avgsll+=Float.parseFloat(element[3]);
+                            avgccc+=Float.parseFloat(element[4]);
+                            avgsrr+=Float.parseFloat(element[5]);
+                            avgdrr+=Float.parseFloat(element[6]);
 
                             htmlMiddle += "   <tr>\n" +
                                     "<td>" + element[0] + "</td>\n" +
@@ -90,6 +97,14 @@ public class Personal_info extends AppCompatActivity {
                                     "  </tr>\n";
                         }
 
+                        avgsl=avgsll/ln;
+                        avgcc=avgccc/ln;
+                        avgdr=avgdrr/ln;
+                        avgsr=avgsrr/ln;
+                        avgsll=0;
+                        avgccc=0;
+                        avgdrr=0;
+                        avgsrr=0;
                         String htmlTable = Constant.html + htmlMiddle + Constant.htmlLast;
                         webView.loadDataWithBaseURL(null, htmlTable, "text/html", "utf-8", null);
 

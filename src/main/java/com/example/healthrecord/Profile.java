@@ -52,6 +52,7 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
     public static String name;
     View view;
     public static String message;
+    public static float a=0,b=0,c=0,d=0;
 
     private Boolean exit = false;
     public static Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
@@ -128,6 +129,10 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
         }
         else if(item.getItemId() == R.id.preview){
             Intent intent = new Intent(getApplicationContext(),SearchRecord.class);
+            startActivity(intent);
+        }
+        else if(item.getItemId() == R.id.comparison){
+            Intent intent = new Intent(getApplicationContext(),Data_Comparison.class);
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
@@ -236,6 +241,10 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
         final String Weight = weight.getText().toString().trim();
         final String Month = month.getText().toString().trim();
         final String Year = year.getText().toString().trim();
+        a=Float.parseFloat(SugarLevel);
+        b=Float.parseFloat(ConsumedCalories);
+        c=Float.parseFloat(SystolicRate);
+        d=Float.parseFloat(DiastolicRate);
 
 
         if(Date.isEmpty()){

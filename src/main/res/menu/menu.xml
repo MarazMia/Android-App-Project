@@ -12,6 +12,13 @@
         />
 
     <item
+        android:id="@+id/comparison"
+        android:icon="@drawable/ic_account_circle_black_24dp"
+        android:title="Data Comparison"
+        />
+
+
+    <item
 
         android:id="@+id/myinfo"
         android:title="My info"

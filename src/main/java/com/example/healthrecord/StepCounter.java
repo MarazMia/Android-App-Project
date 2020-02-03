@@ -47,7 +47,6 @@ public class StepCounter extends AppCompatActivity implements View.OnClickListen
                         stepCount++;
                     }
                     textView.setText("total steps "+stepCount.toString());
-
                 }
 
 
