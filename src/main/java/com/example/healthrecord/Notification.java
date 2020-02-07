@@ -7,8 +7,6 @@ import android.widget.TextView;
 
 public class Notification extends AppCompatActivity {
     private TextView textView;
-    String message;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

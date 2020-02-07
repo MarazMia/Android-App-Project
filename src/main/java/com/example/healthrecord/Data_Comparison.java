@@ -24,19 +24,40 @@ import static com.github.mikephil.charting.charts.BarChart.*;
 
 public class Data_Comparison extends AppCompatActivity {
 
-    BarChart barChart;
+    BarChart barChart1,barChart2,barChart3,barChart4;
     BarData barData;
     BarDataSet barDataSet;
     ArrayList barEntries;
+    String str1,str2,str3,str4;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Personal_info pfobj = new Personal_info();
+        pfobj.To_Do();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data__comparison);
-        barChart = findViewById(R.id.BarChart);
-        getEntries();
+        barChart1 = findViewById(R.id.BarChart1);
+        barChart2 = findViewById(R.id.BarChart2);
+        barChart3 = findViewById(R.id.BarChart3);
+        barChart4 = findViewById(R.id.BarChart4);
+        str1="Sugar Level Information!!!";
+        str2="Consumed Calories Information!!!";
+        str3="Systolic Rate Information!!!";
+        str4="Diastolic Rate Information!!!";
+        getEntries(Personal_info.avgsl,Profile.a,barChart1,str1);
+        getEntries(Personal_info.avgcc,Profile.b,barChart2,str2);
+        getEntries(Personal_info.avgsr,Profile.c,barChart3,str3);
+        getEntries(Personal_info.avgdr,Profile.d,barChart4,str4);
+
+    }
+
+    private void getEntries(float a1,float a2,BarChart barChart,String str) {
+        barEntries = new ArrayList<>();
+        barEntries.add(new BarEntry(1, 6f));
+        barEntries.add(new BarEntry(2, a1));
+        barEntries.add(new BarEntry(3, a2));
         YAxis yAxis = barChart.getAxisLeft();
         yAxis.setAxisMinValue(0);
-        barDataSet = new BarDataSet(barEntries, "Sugar Level Information!!!");
+        barDataSet = new BarDataSet(barEntries,str);
         String[] report = new String[]{"normal", "average", "today"};
         XAxis xAxis = barChart.getXAxis();
         xAxis.setValueFormatter(new ChartAXisValueFormatter(report));
@@ -52,36 +73,8 @@ public class Data_Comparison extends AppCompatActivity {
         barDataSet.setValueTextColor(Color.BLACK);
         barDataSet.setValueTextSize(15f);
         barChart.getDescription().setEnabled(false);
-    }
-
-    private void getEntries() {
-        barEntries = new ArrayList<>();
-        barEntries.add(new BarEntry(1, 6f));
-        barEntries.add(new BarEntry(2, Personal_info.avgsl));
-        barEntries.add(new BarEntry(3, Profile.a));
 
     }
 
-}
-
-class ChartAXisValueFormatter implements IAxisValueFormatter {
-    private String[] mValues;
-
-    public ChartAXisValueFormatter(String[] values) {
-        mValues = values;
-    }
-
-    @Override
-    public String getFormattedValue(float value, AxisBase axis) {
-
-        int val = (int) (value) -1;
-        String label = "";
-        if (val >= 0 && val < mValues.length) {
-            label = mValues[val];
-        } else {
-            label = "";
-        }
-        return label;
-    }
 }
 

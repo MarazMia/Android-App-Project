@@ -27,8 +27,7 @@ public class Personal_info extends AppCompatActivity {
 
     private WebView webView;
     private String htmlMiddle;
-    public static float avgsl=0,avgcc=0,avgsr=0,avgdr=0,avgsll=0,avgccc=0,avgsrr=0,avgdrr=0,highestsl=100000,lowestsl=0,
-            highestsr=100000,lowestsr=0,highestdr=100000,lowestdr=0,highestcc=100000,lowestcc=0;
+    public static float avgsl,avgcc,avgsr,avgdr,avgsll,avgccc,avgsrr,avgdrr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +49,8 @@ public class Personal_info extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+
 
 
     public void personal_info(){
@@ -80,10 +81,10 @@ public class Personal_info extends AppCompatActivity {
                         for (int i = 0; i < ln; i++) {
                             String[] element = content[i].split("-");
 
-                            avgsll+=Float.parseFloat(element[3]);
+                            /*avgsll+=Float.parseFloat(element[3]);
                             avgccc+=Float.parseFloat(element[4]);
                             avgsrr+=Float.parseFloat(element[5]);
-                            avgdrr+=Float.parseFloat(element[6]);
+                            avgdrr+=Float.parseFloat(element[6]);*/
 
                             htmlMiddle += "   <tr>\n" +
                                     "<td>" + element[0] + "</td>\n" +
@@ -97,14 +98,14 @@ public class Personal_info extends AppCompatActivity {
                                     "  </tr>\n";
                         }
 
-                        avgsl=avgsll/ln;
+                        /*avgsl=avgsll/ln;
                         avgcc=avgccc/ln;
                         avgdr=avgdrr/ln;
                         avgsr=avgsrr/ln;
                         avgsll=0;
                         avgccc=0;
                         avgdrr=0;
-                        avgsrr=0;
+                        avgsrr=0;*/
                         String htmlTable = Constant.html + htmlMiddle + Constant.htmlLast;
                         webView.loadDataWithBaseURL(null, htmlTable, "text/html", "utf-8", null);
 
@@ -134,4 +135,78 @@ public class Personal_info extends AppCompatActivity {
         MySingleton.getInstance(this).addToRequestQueue(stringRequest);
 
     }
+
+
+
+
+
+
+
+
+    public void To_Do(){
+        final String Email = Profile.Email;
+
+        StringRequest stringRequest = new StringRequest(POST, Constant.url_personalInfo, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+
+                    String[] content = response.toString().split("\n");
+                    int ln = 0;
+                    if(response.toString().trim().equalsIgnoreCase("no")) {
+                        JSONObject jsonObject = new JSONObject(response);
+                        Toast.makeText(getApplicationContext(), jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),"no data in your list",Toast.LENGTH_SHORT).show();
+                    }
+                    if (content.length > 15)
+                        ln = 15;
+                    else if (content.length > 0)
+                        ln = content.length;
+
+                    for (int i = 0; i < ln; i++) {
+                        String[] element = content[i].split("-");
+
+                        avgsll+=Float.parseFloat(element[3]);
+                        avgccc+=Float.parseFloat(element[4]);
+                        avgsrr+=Float.parseFloat(element[5]);
+                        avgdrr+=Float.parseFloat(element[6]);
+
+                    }
+
+                    avgsl=avgsll/ln;
+                    avgcc=avgccc/ln;
+                    avgdr=avgdrr/ln;
+                    avgsr=avgsrr/ln;
+                    avgsll=0;
+                    avgccc=0;
+                    avgdrr=0;
+                    avgsrr=0;
+                    JSONObject jsonObject = new JSONObject(response);
+                    Toast.makeText(getApplicationContext(), jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                Toast.makeText(getApplicationContext(),error.getMessage(),Toast.LENGTH_SHORT).show();
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String,String> params= new HashMap<>();
+                params.put("Email",Email);
+                return params;
+            }
+        };
+
+        MySingleton.getInstance(this).addToRequestQueue(stringRequest);
+    }
+
+
+
 }

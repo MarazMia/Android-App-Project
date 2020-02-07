@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/cardview_shadow_start_color"
+    android:background="@color/colorPrimary"
     android:layout_gravity="center"
     android:orientation="vertical"
     android:padding="30dp"
@@ -17,9 +17,25 @@
         >
 
         <com.github.mikephil.charting.charts.BarChart
-            android:id="@+id/BarChart"
+            android:id="@+id/BarChart1"
             android:layout_width="match_parent"
             android:layout_height="300dp" />
+
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/BarChart2"
+            android:layout_width="match_parent"
+            android:layout_height="300dp" />
+
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/BarChart3"
+            android:layout_width="match_parent"
+            android:layout_height="300dp" />
+
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/BarChart4"
+            android:layout_width="match_parent"
+            android:layout_height="300dp" />
+
 
 
     </LinearLayout>

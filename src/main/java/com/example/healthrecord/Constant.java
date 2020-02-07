@@ -1,7 +1,7 @@
 package com.example.healthrecord;
 
 public class Constant {
-    private static  final String root_url = "http://192.168.1.2/HealthRecord/";
+    private static  final String root_url = "http://192.168.1.69/HealthRecord/";
     public  static  final  String url_register = root_url+"Connect.php";
     public  static  final  String url_search = root_url+"bottomQuery.php";
     public static final String url_login = root_url+"userLogin.php";
@@ -78,11 +78,6 @@ public class Constant {
             "    <th>DR/N</th>\n" +
             "    <th>Weight</th>\n" +
             "  </tr>\n" ;
-
-    public static String htmlFinalLast =
-            "</table>\n" +
-            "</body>\n" +
-            "</html>\n";
     public static String htmlEmpty =
             "<html>\n" +
                     "<body>\n" +
