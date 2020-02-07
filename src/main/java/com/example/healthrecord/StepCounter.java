@@ -43,7 +43,7 @@ public class StepCounter extends AppCompatActivity implements View.OnClickListen
                     double MagnitudeDelta = Magnitude - MagnitudePrevious;
                     MagnitudePrevious = Magnitude;
 
-                    if (MagnitudeDelta > 6){
+                    if (MagnitudeDelta > 7){
                         stepCount++;
                     }
                     textView.setText("total steps "+stepCount.toString());
