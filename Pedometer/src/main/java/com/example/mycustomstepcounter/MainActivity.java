@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                     double MagnitudeDelta = Magnitude - MagnitudePrevious;
                     MagnitudePrevious = Magnitude;
 
-                    if (MagnitudeDelta > 6){
+                    if (MagnitudeDelta > 7){
                         stepCount++;
                     }
                     textView.setText(stepCount.toString());
