@@ -19,17 +19,20 @@
         <com.github.mikephil.charting.charts.BarChart
             android:id="@+id/BarChart1"
             android:layout_width="match_parent"
-            android:layout_height="300dp" />
+            android:layout_height="300dp"
+            android:layout_marginBottom="50dp"/>
 
         <com.github.mikephil.charting.charts.BarChart
             android:id="@+id/BarChart2"
             android:layout_width="match_parent"
-            android:layout_height="300dp" />
+            android:layout_height="300dp"
+            android:layout_marginBottom="50dp"/>
 
         <com.github.mikephil.charting.charts.BarChart
             android:id="@+id/BarChart3"
             android:layout_width="match_parent"
-            android:layout_height="300dp" />
+            android:layout_height="300dp"
+            android:layout_marginBottom="50dp"/>
 
         <com.github.mikephil.charting.charts.BarChart
             android:id="@+id/BarChart4"

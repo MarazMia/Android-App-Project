@@ -46,13 +46,11 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
     private DatePicker datePicker;
     private TimePicker timePicker;
     public static String Email, Date;
-    private final String channel_id = "public notifications";
-    private final int notification_id = 001;
     private ProgressBar progressBar;
     public static String name;
     View view;
     public static String message;
-    public static float a=0,b=0,c=0,d=0;
+
 
     private Boolean exit = false;
     public static Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
@@ -241,11 +239,19 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
         final String Weight = weight.getText().toString().trim();
         final String Month = month.getText().toString().trim();
         final String Year = year.getText().toString().trim();
-        a=Float.parseFloat(SugarLevel);
-        b=Float.parseFloat(ConsumedCalories);
-        c=Float.parseFloat(SystolicRate);
-        d=Float.parseFloat(DiastolicRate);
 
+
+        if(Year.isEmpty()){
+            year.setError("please enter your year");
+            year.requestFocus();
+            return;
+        }
+
+        if(Month.isEmpty()){
+            month.setError("please enter your date");
+            month.requestFocus();
+            return;
+        }
 
         if(Date.isEmpty()){
             date.setError("please enter your date");
@@ -282,22 +288,11 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
             weight.requestFocus();
             return;
         }
-        if(Month.isEmpty()){
-            month.setError("please enter your Month");
-            month.requestFocus();
-            return;
-        }
         if( !Month.equalsIgnoreCase("january") && !Month.equalsIgnoreCase("february") && !Month.equalsIgnoreCase("march") && !Month.equalsIgnoreCase("april")
                 && !Month.equalsIgnoreCase("may") && !Month.equalsIgnoreCase("june") && !Month.equalsIgnoreCase("july") && !Month.equalsIgnoreCase("august")
                 && !Month.equalsIgnoreCase("september") && !Month.equalsIgnoreCase("october") && !Month.equalsIgnoreCase("november") && !Month.equalsIgnoreCase("december")){
             month.setError("please check your spelling");
             month.requestFocus();
-            return;
-        }
-
-        if(Year.isEmpty()){
-            year.setError("please enter your Year");
-            year.requestFocus();
             return;
         }
 
@@ -307,6 +302,8 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
                 try {
                     Toast.makeText(getApplicationContext(),response.toString(),Toast.LENGTH_SHORT).show();
                     if(response.toString().equals("Updated successfully")){
+
+
 
                         progressBar.setVisibility(View.GONE);
                         setNotification();
