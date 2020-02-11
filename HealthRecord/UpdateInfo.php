@@ -19,7 +19,7 @@
 	 $object = new CreateTableUser_details();
 	 $object->TableUser_details($conn);
 
-	 $updateList = "INSERT INTO User_details(Email, Year, Month, Date_ , Sugar_level, Consumed_Calory, Systolic_Rate, Diastolic_Rate, Weight)
+	 $updateList = "REPLACE INTO User_details(Email, Year, Month, Date_ , Sugar_level, Consumed_Calory, Systolic_Rate, Diastolic_Rate, Weight)
 		 		VALUES('$email', '$year', '$month', '$date','$sugar', '$cc','$sr', '$dr', '$weight');";
 
 	if($conn->query($updateList) == true){

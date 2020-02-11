@@ -13,4 +13,7 @@
 	echo $row['Year']."-".$row['Month']."-".$row['Date_']."-".$row['Sugar_level']."-".$row['Consumed_Calory']."-".$row['Systolic_Rate']."-".$row['Diastolic_Rate']."-".$row['Weight']."\n";
 				}
 			}
+	else{
+		echo "No";
+	}
 ?>
