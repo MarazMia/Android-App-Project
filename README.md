@@ -22,11 +22,11 @@ So, one only needs to give the data of their corresponding health condition and 
 For front end `XML` and `Java` are used. Inside Java code `volly`,`OneSignal`and `MPAndroidChart` library was used.
 ## Back End
 `PHP` and `MySql` is used for making the database and tables. All the records are stored in this database.
-![Preview](https://github.com/MarazMia/Android-App-Project/blob/main/img1%20.png)
-![Preview](https://github.com/MarazMia/Android-App-Project/blob/main/img2%20.png)
-![Preview](https://github.com/MarazMia/Android-App-Project/blob/main/img3%20.png)
-![Preview](https://github.com/MarazMia/Android-App-Project/blob/main/img4%20.png)
-![Preview](https://github.com/MarazMia/Android-App-Project/blob/main/img5%20.png)
+![Preview](https://github.com/MarazMia/Android-App-Project/blob/master/img1.png)
+![Preview](https://github.com/MarazMia/Android-App-Project/blob/master/img2.png)
+![Preview](https://github.com/MarazMia/Android-App-Project/blob/master/img3.png)
+![Preview](https://github.com/MarazMia/Android-App-Project/blob/master/img4.png)
+![Preview](https://github.com/MarazMia/Android-App-Project/blob/master/img5.png)
 
 
 # How to run it(for educational purposes)
