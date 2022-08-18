@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:orientation="vertical"
+    tools:context=".SignIn">
+
+    <ImageView
+        android:layout_width="375dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:padding="50dp"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/icon2" />
+
+
+    <EditText
+        android:id="@+id/signinEmail"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:hint="Email"
+        android:textAlignment="center" />
+
+    <EditText
+        android:id="@+id/signinpass"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        android:textAlignment="center"
+        android:layout_gravity="center"
+        />
+
+
+    <Button
+        android:id="@+id/signinfinal"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/buttonshape"
+        android:text="Signin"
+        android:textSize="25sp" />
+
+    <ProgressBar
+        android:id="@+id/loginprogress"
+        android:visibility="gone"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+
+</LinearLayout>
