@@ -39,8 +39,8 @@ For front end `XML` and `Java` are used. Inside Java code `volly`,`OneSignal`and
 
 ---
 For any inquiry please contact
-1. [Maraz](maraj262000@gmail.com)
-2. [Ohee](sfiohee@gmail.com)
+1. [Maraz](https://marazmia.github.io/Personal_Website/)
+2. [Ohee](https://www.facebook.com/profile.php?id=100007797257515)
 ---
 
 ## License and Agreement
