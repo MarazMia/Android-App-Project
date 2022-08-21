@@ -1,4 +1,4 @@
-# CricBoss
+# HealthRecord
 **Version 1.0.0**
 
 It's an android application. The goal is to make a system for patients where a particular doctor can observ his/her patients 24/7.
